@@ -1,0 +1,33 @@
+ALGORITHM sets-problem2-solution1
+VAR
+set1, set2: ARRAY-OF INTEGER[50];
+i,j: INTEGER;
+sum: INTEGER:=0;
+exist: BOOLEAN;
+
+BEGIN
+FOR i FROM 0 TO set1.lenght - 1 DO
+     exist:=TRUE;
+     FOR j FROM 0 TO set2.lenght - 1 DO
+       IF (set1[i]=set2[j]) THEN
+       sum:=sum+set1[i]
+       END
+    END_FOR
+    IF (NOT exist) THEN
+    exist:=FALSE
+    END_IF
+END_FOR
+
+FOR i FROM 0 TO set2.lenght - 1 DO
+    exist:=TRUE
+    FOR j FROM 0 TO set2.lenght - 1 DO 
+    IF (set2[i]=set1[j]) THEN
+    sum:=sum+set2[i];
+    END
+    END_FOR
+IF (NOT exist) THEN
+exist:=FALSE;
+END_IF
+END_FOR
+write (sum);
+END 
